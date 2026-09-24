@@ -48,7 +48,7 @@ fun GreetingText(message: String,from: String,modifier: Modifier = Modifier)
         modifier = modifier.padding(8.dp)) {
         Text(
             text = message,
-            fontSize = 100.sp,
+            fontSize = 90.sp,
             lineHeight = 116.sp,
             textAlign = TextAlign.Center
         )
@@ -68,6 +68,7 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
         Image(
             painter = image,
             contentDescription = null,
+            contentScale = ContentScale.FillBounds,
             modifier = Modifier
                 .fillMaxSize()
                 .rotate(270f)
@@ -76,7 +77,6 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
             message = message,
             from = from,
             modifier = Modifier
-                .contentScale.Fillbounds
                 .fillMaxSize()
                 .padding(8.dp)
         )
