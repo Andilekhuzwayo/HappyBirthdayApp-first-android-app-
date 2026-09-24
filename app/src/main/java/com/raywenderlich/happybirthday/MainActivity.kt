@@ -9,15 +9,20 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.raywenderlich.happybirthday.ui.theme.HappyBirthdayTheme
+import androidx.compose.foundation.Image
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.draw.rotate
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,11 +58,35 @@ fun GreetingText(message: String,from: String,modifier: Modifier = Modifier)
         )
     }
 }
+/* adding a new composable function greeting image ,
+using box layout to stack the image and the text on top of each other.*/
+@Composable
+fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
+    val image = painterResource(R.drawable._0240401_084533)
+
+    Box(modifier) {
+        Image(
+            painter = image,
+            contentDescription = null,
+            modifier = Modifier
+                .fillMaxSize()
+                .rotate(270f)
+        )
+        GreetingText(
+            message = message,
+            from = from,
+            modifier = Modifier
+                .contentScale.Fillbounds
+                .fillMaxSize()
+                .padding(8.dp)
+        )
+    }
+}
 
 @Preview(showBackground = true)
 @Composable
 fun BirthdayCardPreview() {
     HappyBirthdayTheme {
-        GreetingText(message = "Happy birthday Andile",from ="from : Leon")
+        GreetingImage(message = "Happy birthday Andile",from ="from : Leon")
     }
 }
