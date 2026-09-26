@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
                 ){
                     GreetingImage(message = getString(R.string.happy_birthday_text),
                         from = getString(R.string.signature_text),
-                        modifier = Modifier
+                        modifier = Modifiers
                             .padding(8.dp))
                 }
             }
@@ -78,8 +78,7 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
             contentDescription = null,
             contentScale = ContentScale.FillBounds,
             modifier = Modifier
-                .fillMaxSize()
-                .rotate(270f),
+                .fillMaxSize(),
             alpha = 0.7f
         )
         GreetingText(
