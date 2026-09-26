@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.sp
 import com.raywenderlich.happybirthday.ui.theme.HappyBirthdayTheme
 import androidx.compose.foundation.Image
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.stringResource
 
@@ -38,7 +37,7 @@ class MainActivity : ComponentActivity() {
                 ){
                     GreetingImage(message = getString(R.string.happy_birthday_text),
                         from = getString(R.string.signature_text),
-                        modifier = Modifiers
+                        modifier = Modifier
                             .padding(8.dp))
                 }
             }
